@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Dialog } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -107,121 +107,120 @@ const Index = () => {
 
       {/* Referral Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div className="fixed inset-0 bg-black/20 backdrop-blur-sm" aria-hidden="true" />
-          <div className="glass-modal relative w-full max-w-lg rounded-2xl p-6 shadow-xl animate-scale-in">
-            <h2 className="text-2xl font-bold">Refer a Friend</h2>
-            <p className="mt-2 text-gray-600">
+        <DialogContent className="sm:max-w-lg">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold">Refer a Friend</DialogTitle>
+            <DialogDescription className="text-gray-600">
               Fill in the details below to refer your friend
-            </p>
+            </DialogDescription>
+          </DialogHeader>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-6">
-              <div className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium">Your Name</label>
-                  <input
-                    type="text"
-                    {...register("referrerName")}
-                    className="input-field"
-                    placeholder="Enter your name"
-                  />
-                  {errors.referrerName && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.referrerName.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium">Your Email</label>
-                  <input
-                    type="email"
-                    {...register("referrerEmail")}
-                    className="input-field"
-                    placeholder="Enter your email"
-                  />
-                  {errors.referrerEmail && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.referrerEmail.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium">Friend's Name</label>
-                  <input
-                    type="text"
-                    {...register("friendName")}
-                    className="input-field"
-                    placeholder="Enter friend's name"
-                  />
-                  {errors.friendName && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.friendName.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium">Friend's Email</label>
-                  <input
-                    type="email"
-                    {...register("friendEmail")}
-                    className="input-field"
-                    placeholder="Enter friend's email"
-                  />
-                  {errors.friendEmail && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.friendEmail.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium">Select Course</label>
-                  <select {...register("course")} className="input-field">
-                    <option value="">Select a course</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="data-science">Data Science</option>
-                    <option value="mobile-dev">Mobile Development</option>
-                    <option value="ui-design">UI/UX Design</option>
-                  </select>
-                  {errors.course && (
-                    <p className="mt-1 text-sm text-red-500">
-                      {errors.course.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium">Personal Message (Optional)</label>
-                  <textarea
-                    {...register("message")}
-                    className="input-field min-h-[100px]"
-                    placeholder="Add a personal message to your friend..."
-                  />
-                </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-6">
+            <div className="space-y-4">
+              <div>
+                <label className="text-sm font-medium">Your Name</label>
+                <input
+                  type="text"
+                  {...register("referrerName")}
+                  className="input-field"
+                  placeholder="Enter your name"
+                />
+                {errors.referrerName && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.referrerName.message}
+                  </p>
+                )}
               </div>
 
-              <div className="flex justify-end gap-4">
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-primary"
-                >
-                  {isSubmitting ? "Sending..." : "Send Referral"}
-                </button>
+              <div>
+                <label className="text-sm font-medium">Your Email</label>
+                <input
+                  type="email"
+                  {...register("referrerEmail")}
+                  className="input-field"
+                  placeholder="Enter your email"
+                />
+                {errors.referrerEmail && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.referrerEmail.message}
+                  </p>
+                )}
               </div>
-            </form>
-          </div>
-        </div>
+
+              <div>
+                <label className="text-sm font-medium">Friend's Name</label>
+                <input
+                  type="text"
+                  {...register("friendName")}
+                  className="input-field"
+                  placeholder="Enter friend's name"
+                />
+                {errors.friendName && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.friendName.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="text-sm font-medium">Friend's Email</label>
+                <input
+                  type="email"
+                  {...register("friendEmail")}
+                  className="input-field"
+                  placeholder="Enter friend's email"
+                />
+                {errors.friendEmail && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.friendEmail.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="text-sm font-medium">Select Course</label>
+                <select {...register("course")} className="input-field">
+                  <option value="">Select a course</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="data-science">Data Science</option>
+                  <option value="mobile-dev">Mobile Development</option>
+                  <option value="ui-design">UI/UX Design</option>
+                </select>
+                {errors.course && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.course.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="text-sm font-medium">Personal Message (Optional)</label>
+                <textarea
+                  {...register("message")}
+                  className="input-field min-h-[100px]"
+                  placeholder="Add a personal message to your friend..."
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-end gap-4">
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-primary"
+              >
+                {isSubmitting ? "Sending..." : "Send Referral"}
+              </button>
+            </div>
+          </form>
+        </DialogContent>
       </Dialog>
     </div>
   );
