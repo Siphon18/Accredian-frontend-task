@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
@@ -99,6 +98,88 @@ const Index = () => {
               >
                 <h3 className="text-xl font-semibold">{feature.title}</h3>
                 <p className="mt-2 text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+            <h2 className="text-4xl font-bold mb-6">Referral Benefits</h2>
+            <p className="text-gray-600 text-lg">Join our referral program and unlock amazing rewards for both you and your friends.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <div
+                key={benefit.title}
+                className="p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-primary text-xl font-bold">{index + 1}</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+            <h2 className="text-4xl font-bold mb-6">How It Works</h2>
+            <p className="text-gray-600 text-lg">Simple steps to start earning rewards</p>
+          </div>
+
+          <div className="relative">
+            {/* Connection Line */}
+            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-0.5 bg-primary/20 -translate-y-1/2" />
+            
+            <div className="grid lg:grid-cols-4 gap-8">
+              {process.map((step, index) => (
+                <div
+                  key={step.title}
+                  className="relative z-10 text-center animate-fade-in"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <div className="w-16 h-16 mx-auto bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                    {index + 1}
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
+            <h2 className="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+            <p className="text-gray-600 text-lg">Find answers to common questions about our referral program</p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <div
+                key={faq.question}
+                className="mb-6 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300">
+                  <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
+                  <p className="text-gray-600">{faq.answer}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -238,6 +319,75 @@ const features = [
   {
     title: "Easy Sharing",
     description: "Share course recommendations with your friends in just a few clicks.",
+  },
+];
+
+const benefits = [
+  {
+    title: "Cash Rewards",
+    description: "Earn up to $100 for each successful referral. The more friends you bring, the more you earn.",
+  },
+  {
+    title: "Course Credits",
+    description: "Get free course credits that you can use to enroll in any of our premium courses.",
+  },
+  {
+    title: "Premium Features",
+    description: "Unlock exclusive premium features and content when you refer friends.",
+  },
+  {
+    title: "Friend Discount",
+    description: "Your friends get 20% off their first course purchase through your referral.",
+  },
+  {
+    title: "Special Events",
+    description: "Get exclusive access to special events and workshops for being an active referrer.",
+  },
+  {
+    title: "Priority Support",
+    description: "Enjoy priority customer support and dedicated assistance for you and your referred friends.",
+  },
+];
+
+const process = [
+  {
+    title: "Sign Up",
+    description: "Create your account or log in to access the referral program",
+  },
+  {
+    title: "Invite Friends",
+    description: "Share your unique referral link with friends and family",
+  },
+  {
+    title: "Friends Join",
+    description: "Your friends enroll in courses using your referral",
+  },
+  {
+    title: "Earn Rewards",
+    description: "Get rewards when your friends complete their first course",
+  },
+];
+
+const faqs = [
+  {
+    question: "How does the referral program work?",
+    answer: "Our referral program rewards you for bringing friends to our platform. Share your unique referral link, and when your friends enroll in a course, both you and your friend receive rewards.",
+  },
+  {
+    question: "What rewards can I earn?",
+    answer: "You can earn cash rewards, course credits, and unlock premium features. The specific reward depends on the number of successful referrals and the courses your friends enroll in.",
+  },
+  {
+    question: "How long does it take to receive rewards?",
+    answer: "Rewards are typically credited to your account within 24-48 hours after your referred friend completes their first course purchase.",
+  },
+  {
+    question: "Is there a limit to how many friends I can refer?",
+    answer: "No, there's no limit! You can refer as many friends as you'd like and earn rewards for each successful referral.",
+  },
+  {
+    question: "What discount do my friends get?",
+    answer: "Your referred friends receive a 20% discount on their first course purchase when they sign up using your referral link.",
   },
 ];
 
