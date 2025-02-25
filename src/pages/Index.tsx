@@ -88,7 +88,7 @@ const Index = () => {
       <Navbar />
       <div className="min-h-screen pt-16">
         {/* Hero Section */}
-        <section
+        <section id="home"
           className="relative overflow-hidden px-6 py-24 sm:px-8 sm:py-32"
           data-aos="fade-up"
         >
@@ -143,7 +143,7 @@ const Index = () => {
         </section>
 
         {/* Benefits Section */}
-        <section
+        <section id="benefit"
           className="py-24 bg-gradient-to-b from-white to-gray-50"
           data-aos="fade-up"
         >
@@ -179,7 +179,7 @@ const Index = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-24 bg-white" data-aos="fade-up">
+        <section id="how" className="py-24 bg-white" data-aos="fade-up">
           <div className="container mx-auto px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl font-bold mb-6">How It Works</h2>
@@ -212,7 +212,7 @@ const Index = () => {
         </section>
 
         {/* FAQs Section */}
-        <section className="py-24 bg-gray-50" data-aos="fade-up">
+        <section id="faq" className="py-24 bg-gray-50" data-aos="fade-up">
           <div className="container mx-auto px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-4xl font-bold mb-6">

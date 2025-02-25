@@ -116,9 +116,9 @@ const Navbar = () => {
 };
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "How it Works", href: "#how-it-works" },
-  { label: "Benefits", href: "#benefits" },
+  { label: "Home", href: "#home" },
+  { label: "How it Works", href: "#how" },
+  { label: "Benefits", href: "#benefit" },
   { label: "FAQ", href: "#faq" },
 ];
 
