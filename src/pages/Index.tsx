@@ -49,7 +49,10 @@ const Index = () => {
   }, []);
 
   // If using a separate backend, update the API URL below:
-  const API_URL = import.meta.env.VITE_API_URL || ""; // e.g., "https://your-backend.onrender.com"
+  const API_URL = import.meta.env.VITE_API_URL || "";
+  console.log("API_URL:", API_URL);
+  console.log(import.meta.env);
+
 
   // Form submission handler
   const onSubmit = async (data: ReferralForm) => {
